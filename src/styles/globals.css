@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&family=Caveat:wght@600&display=swap');
+
+:root {
+  /* Exact Visual Direction: Warm Ivory / Cream Palette */
+  --bg-page: #FAF7F2;
+  --bg-card: #F3EFE9;
+  --bg-card-hover: #ECE6DD;
+  --bg-white: #FFFFFF;
+  
+  /* Typography */
+  --text-primary: #1E3A5F;
+  --text-secondary: #5A6E7C;
+  --text-muted: #8E9FAA;
+  --text-light: #FAF7F2;
+
+  /* Accent Tones */
+  --accent-sage: #8FA89B;
+  --accent-sage-bg: #E1EBE5;
+  --accent-sage-dark: #6D877A;
+
+  --accent-mustard: #E2B755;
+  --accent-mustard-bg: #FBF0D5;
+  --accent-mustard-dark: #C69A38;
+
+  --accent-blue: #93BED5;
+  --accent-blue-bg: #E4EFF6;
+  --accent-blue-dark: #6C9BB5;
+
+  --accent-coral: #E09587;
+  --accent-coral-bg: #F8E8E4;
+
+  /* Font Families */
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Quicksand', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-script: 'Caveat', cursive;
+
+  /* Border Radii */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
+  --radius-pill: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Shadows (minimal & soft) */
+  --shadow-subtle: 0 4px 20px rgba(30, 58, 95, 0.04);
+  --shadow-card: 0 8px 30px rgba(30, 58, 95, 0.06);
+  --shadow-drawer: -4px 0 30px rgba(30, 58, 95, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Container */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Primary Button (Deep Navy Pill) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--text-primary);
+  color: #FFFFFF;
+  padding: 12px 28px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: all var(--transition-normal);
+  box-shadow: 0 4px 14px rgba(30, 58, 95, 0.18);
+}
+
+.btn-primary:hover {
+  background-color: #152B46;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(30, 58, 95, 0.25);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: transparent;
+  color: var(--text-primary);
+  padding: 10px 22px;
+  border: 1.5px solid var(--text-primary);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all var(--transition-normal);
+}
+
+.btn-secondary:hover {
+  background-color: var(--text-primary);
+  color: #FFFFFF;
+}
+
+/* Circular Arrow Action Button */
+.btn-circle-arrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(30, 58, 95, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF;
+  color: var(--text-primary);
+  transition: all var(--transition-normal);
+}
+
+.btn-circle-arrow:hover {
+  background-color: var(--text-primary);
+  color: #FFFFFF;
+  border-color: var(--text-primary);
+  transform: scale(1.05);
+}
+
+/* Section Header Typography */
+.section-tagline {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.section-subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+/* Dotted Trail SVG Animation */
+.dotted-trail {
+  stroke-dasharray: 6, 6;
+  animation: dash 30s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+
+/* Pulse / Floating Bee */
+@keyframes floatBee {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(3deg);
+  }
+}
+
+.floating-bee {
+  animation: floatBee 3.5s ease-in-out infinite;
+}
+
+/* Responsive Utilities */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 18px;
+  }
+  .section-title {
+    font-size: 24px;
+  }
+}
