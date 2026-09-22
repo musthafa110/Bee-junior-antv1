@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { useStore } from '../context/StoreContext';
 
@@ -11,7 +10,9 @@ export default function Hero() {
 
   return (
     <section className="hero-section">
-      {/* Background Organic Decorative Shapes */}
+      <div className="hero-overlay" aria-hidden="true" />
+      
+      {/* Background Organic Decorative Shapes - hidden for better background visibility or kept subtle */}
       <div className="corner-shape corner-shape-yellow" aria-hidden="true" />
       <div className="corner-shape corner-shape-blue" aria-hidden="true" />
 
@@ -36,21 +37,14 @@ export default function Hero() {
           {/* Left Bottom Botanical Garden Illustration */}
           <div className="botanical-garden" aria-hidden="true">
             <svg viewBox="0 0 240 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="garden-svg">
-              {/* Soft sage tree */}
               <circle cx="40" cy="45" r="30" fill="#8FA89B" fillOpacity="0.45" />
               <line x1="40" y1="45" x2="40" y2="95" stroke="#7A9386" strokeWidth="2" />
               <line x1="40" y1="65" x2="25" y2="52" stroke="#7A9386" strokeWidth="1.5" />
               <line x1="40" y1="72" x2="52" y2="60" stroke="#7A9386" strokeWidth="1.5" />
-
-              {/* Smaller mustard tree */}
               <circle cx="95" cy="62" r="16" fill="#E2B755" fillOpacity="0.5" />
               <line x1="95" y1="62" x2="95" y2="95" stroke="#C69A38" strokeWidth="1.5" />
-
-              {/* Little sprout */}
               <circle cx="68" cy="74" r="8" fill="#8FA89B" fillOpacity="0.6" />
               <line x1="68" y1="74" x2="68" y2="95" stroke="#7A9386" strokeWidth="1.2" />
-
-              {/* Wildflower with soft leaves */}
               <path d="M140 95C140 75 148 65 152 50" stroke="#8FA89B" strokeWidth="1.5" strokeLinecap="round" />
               <circle cx="152" cy="48" r="5" fill="#E2B755" />
               <ellipse cx="145" cy="70" rx="6" ry="3" fill="#8FA89B" fillOpacity="0.4" transform="rotate(-30 145 70)" />
@@ -59,50 +53,32 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Column: Reference Kids Image with Dotted Bee Trail */}
+        {/* Right Column: Kept for layout but removed the image */}
         <div className="hero-visual">
-          {/* Dotted Flight Path and Floating Bee */}
           <div className="bee-trail-container" aria-hidden="true">
             <svg viewBox="0 0 340 220" fill="none" className="trail-svg">
               <path
                 d="M 10 180 C 80 140, 140 100, 200 60 C 240 35, 270 20, 295 15"
-                stroke="#1E3A5F"
+                stroke="#ffffff"
                 strokeWidth="1.8"
                 strokeDasharray="4 6"
                 strokeLinecap="round"
                 opacity="0.55"
               />
             </svg>
-            
-            {/* Cute Bumblebee element flying at the top */}
             <div className="bee-mascot floating-bee">
               <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-                {/* Wings */}
                 <ellipse cx="11" cy="9" rx="6" ry="8" fill="#FFFFFF" fillOpacity="0.85" stroke="#1E3A5F" strokeWidth="1.4" transform="rotate(-30 11 9)" />
                 <ellipse cx="21" cy="9" rx="6" ry="8" fill="#FFFFFF" fillOpacity="0.85" stroke="#1E3A5F" strokeWidth="1.4" transform="rotate(30 21 9)" />
-                {/* Body */}
                 <ellipse cx="16" cy="18" rx="8" ry="11" fill="#E2B755" stroke="#1E3A5F" strokeWidth="1.5" />
-                {/* Stripes */}
                 <path d="M10 15H22" stroke="#1E3A5F" strokeWidth="2.2" strokeLinecap="round" />
                 <path d="M9 19H23" stroke="#1E3A5F" strokeWidth="2.2" strokeLinecap="round" />
-                {/* Antennae */}
                 <path d="M13 8C12 5 10 5 9 6" stroke="#1E3A5F" strokeWidth="1.4" strokeLinecap="round" />
                 <path d="M19 8C20 5 22 5 23 6" stroke="#1E3A5F" strokeWidth="1.4" strokeLinecap="round" />
               </svg>
             </div>
           </div>
 
-          {/* Kids Photography (Blends naturally with no harsh borders) */}
-          <div className="hero-image-wrapper">
-            <img
-              src={siteSettings.heroImage || '/images/hero-kids.jpg'}
-              alt="Bee Junior comfortable kids wear"
-              className="hero-image"
-              loading="eager"
-            />
-          </div>
-
-          {/* Right botanical flower accent */}
           <div className="botanical-right" aria-hidden="true">
             <svg width="40" height="90" viewBox="0 0 40 90" fill="none">
               <path d="M20 90V20" stroke="#8FA89B" strokeWidth="1.5" />
@@ -119,9 +95,19 @@ export default function Hero() {
           position: relative;
           padding: 24px 0 32px;
           overflow: hidden;
+          background-image: url('/images/hero-bg.jpg');
+          background-size: cover;
+          background-position: center center;
+          background-repeat: no-repeat;
         }
 
-        /* Subtle Corner Organic Shapes from reference */
+        .hero-overlay {
+          position: absolute;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.4);
+          z-index: 1;
+        }
+
         .corner-shape {
           position: absolute;
           pointer-events: none;
@@ -158,7 +144,6 @@ export default function Hero() {
           min-height: 440px;
         }
 
-        /* Left Column */
         .hero-content {
           position: relative;
           padding-top: 10px;
@@ -172,25 +157,28 @@ export default function Hero() {
           font-weight: 600;
           letter-spacing: 0.16em;
           text-transform: uppercase;
-          color: var(--text-secondary);
+          color: #f0f0f0;
           margin-bottom: 12px;
+          text-shadow: 0 1px 2px rgba(0,0,0,0.5);
         }
 
         .hero-heading {
           font-size: 46px;
           line-height: 1.15;
           font-weight: 600;
-          color: var(--text-primary);
+          color: #ffffff;
           margin-bottom: 14px;
           letter-spacing: -0.02em;
+          text-shadow: 0 2px 4px rgba(0,0,0,0.6);
         }
 
         .hero-subtitle {
           font-family: var(--font-body);
           font-size: 15px;
-          color: var(--text-secondary);
+          color: #f8f8f8;
           margin-bottom: 26px;
           font-weight: 400;
+          text-shadow: 0 1px 3px rgba(0,0,0,0.6);
         }
 
         .hero-cta {
@@ -202,7 +190,6 @@ export default function Hero() {
           font-size: 14.5px;
         }
 
-        /* Botanical garden drawing at bottom left */
         .botanical-garden {
           position: relative;
           width: 220px;
@@ -215,7 +202,6 @@ export default function Hero() {
           height: 100%;
         }
 
-        /* Right Column */
         .hero-visual {
           position: relative;
           display: flex;
@@ -242,21 +228,6 @@ export default function Hero() {
           position: absolute;
           top: 0;
           right: 20px;
-        }
-
-        .hero-image-wrapper {
-          position: relative;
-          width: 100%;
-          max-width: 490px;
-          border-radius: var(--radius-lg);
-          overflow: hidden;
-        }
-
-        .hero-image {
-          width: 100%;
-          height: auto;
-          object-fit: cover;
-          display: block;
         }
 
         .botanical-right {
@@ -286,12 +257,7 @@ export default function Hero() {
           }
 
           .hero-visual {
-            order: -1;
-            justify-content: center;
-          }
-
-          .hero-image-wrapper {
-            max-width: 380px;
+            display: none;
           }
         }
 
